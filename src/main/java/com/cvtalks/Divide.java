@@ -8,6 +8,7 @@ Class throws "Division by zero exception"
 public class Divide extends BinaryOperation {
     final Operation x;
     final Operation y;
+	String SampleAnalysisError = "";
 
     public Divide(Operation x, Operation y) {
         this.x = x;
