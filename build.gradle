@@ -1,0 +1,74 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.8.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'jacoco'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+
+version = '1.0'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+mainClassName = "com.cvtalks.Application"
+
+jar {
+    baseName = 'gs-handling-form-submission'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+
+
+
+
+dependencies {
+
+    compile fileTree(dir: 'src/')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+
+    compile group: 'org.boofcv', name: 'ip', version: '0.18'
+    compile group: 'org.boofcv', name: 'io', version: '0.18'
+    compile group: 'org.boofcv', name: 'visualize', version: '0.18'	
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
+
+check.dependsOn jacocoTestReport
