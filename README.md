@@ -33,5 +33,4 @@ or
 http://localhost:8080/calculate?value=...  
 for examle:  
 http://localhost:8080/calculate?value=sin(pi/2)  
-Test11
-rtrhtryh
+
