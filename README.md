@@ -34,7 +34,5 @@ http://localhost:8080/calculate?value=...
 for examle:  
 http://localhost:8080/calculate?value=sin(pi/2)  
 
-rerrrdfgd
-Jira test
-Jira test 2 
-Jira commit Roni
+Remove all Junk commits
+Jira commit messgae  test
